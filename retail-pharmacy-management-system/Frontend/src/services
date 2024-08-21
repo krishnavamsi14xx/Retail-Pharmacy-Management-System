@@ -1,0 +1,5 @@
+import axios from 'axios';
+
+export const getPrescriptionsByCustomer = (customerName) => {
+    return axios.get(`/api/prescriptions/${customerName}`);
+};

@@ -1,0 +1,25 @@
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
+function PrescriptionList() {
+    const [prescriptions, setPrescriptions] = useState([]);
+
+    useEffect(() => {
+        axios.get('/api/prescriptions/customer1')
+            .then(response => setPrescriptions(response.data))
+            .catch(error => console.error(error));
+    }, []);
+
+    return (
+        <div>
+            <h1>Prescriptions</h1>
+            <ul>
+                {prescriptions.map(prescription => (
+                    <li key={prescription.id}>{prescription.medicine} - {prescription.quantity}</li>
+                ))}
+            </ul>
+        </div>
+    );
+}
+
+export default PrescriptionList;

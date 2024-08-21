@@ -1,0 +1,13 @@
+@Service
+public class PrescriptionService {
+    @Autowired
+    private PrescriptionRepository repository;
+
+    public Prescription savePrescription(Prescription prescription) {
+        return repository.save(prescription);
+    }
+
+    public List<Prescription> getPrescriptionsByCustomer(String customerName) {
+        return repository.findByCustomerName(customerName);
+    }
+}

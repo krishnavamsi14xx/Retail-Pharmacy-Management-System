@@ -1,0 +1,13 @@
+@Entity
+public class Prescription {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String customerName;
+    private String medicine;
+    private int quantity;
+    private LocalDate prescriptionDate;
+
+    // Getters and setters
+}

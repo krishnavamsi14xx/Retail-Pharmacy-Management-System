@@ -1,0 +1,3 @@
+FROM openjdk:17-jdk-alpine
+COPY target/retailpharmacy.jar retailpharmacy.jar
+ENTRYPOINT ["java", "-jar", "retailpharmacy.jar"]

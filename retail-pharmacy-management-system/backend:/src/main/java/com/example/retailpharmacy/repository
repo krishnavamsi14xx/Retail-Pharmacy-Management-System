@@ -1,0 +1,3 @@
+public interface PrescriptionRepository extends JpaRepository<Prescription, Long> {
+    List<Prescription> findByCustomerName(String customerName);
+}

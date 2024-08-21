@@ -1,0 +1,16 @@
+@RestController
+@RequestMapping("/api/prescriptions")
+public class PrescriptionController {
+    @Autowired
+    private PrescriptionService service;
+
+    @PostMapping
+    public ResponseEntity<Prescription> addPrescription(@RequestBody Prescription prescription) {
+        return ResponseEntity.ok(service.savePrescription(prescription));
+    }
+
+    @GetMapping("/{customerName}")
+    public ResponseEntity<List<Prescription>> getPrescriptions(@PathVariable String customerName) {
+        return ResponseEntity.ok(service.getPrescriptionsByCustomer(customerName));
+    }
+}
